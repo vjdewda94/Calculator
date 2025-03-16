@@ -31,43 +31,43 @@ public class CalculatorAWT {
             "C", "0", "=", "+"
         };
 
-        // Loop to create buttons dynamically
+       
         for (String label : buttonLabels) {
             JButton button = new JButton(label);
             panel.add(button);
             button.addActionListener(new ButtonClickListener());
         }
 
-        // Add panel with buttons to the frame
+        
         frame.add(panel, BorderLayout.CENTER);
 
-        // Make frame visible
+       
         frame.setVisible(true);
     }
 
-    // ActionListener for button clicks
+    
     private class ButtonClickListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             String command = e.getActionCommand();
 
-            // If the button clicked is a number, append to the text field
+            
             if (command.charAt(0) >= '0' && command.charAt(0) <= '9') {
                 textField.setText(textField.getText() + command);
             }
-            // If the button clicked is an operator, store the first number and operator
+            
             else if (command.equals("+") || command.equals("-") || command.equals("*") || command.equals("/")) {
                 if (textField.getText().isEmpty()) return; // Ignore if text field is empty
                 num1 = Double.parseDouble(textField.getText());
                 operator = command;
                 textField.setText("");
             }
-            // If the button clicked is "=", perform the calculation
+            
             else if (command.equals("=")) {
                 if (textField.getText().isEmpty()) return; // Ignore if text field is empty
                 num2 = Double.parseDouble(textField.getText());
 
-                // Perform the operation based on the operator
+                
                 try {
                     switch (operator) {
                         case "+":
@@ -92,7 +92,7 @@ public class CalculatorAWT {
                     textField.setText("Error");
                 }
             }
-            // If the button clicked is "C", clear the text field
+            
             else if (command.equals("C")) {
                 textField.setText("");
             }
@@ -100,7 +100,7 @@ public class CalculatorAWT {
     }
 
     public static void main(String[] args) {
-        // Create the calculator instance and show the GUI
+        
         new CalculatorAWT();
     }
 }
