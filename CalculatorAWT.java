@@ -9,17 +9,17 @@ public class CalculatorAWT {
     private String operator;
 
     public CalculatorAWT() {
-        // Create frame
+        
         frame = new JFrame("Simple Calculator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 500);
         frame.setLayout(new BorderLayout());
 
-        // Create text field for displaying input and result
+        
         textField = new JTextField();
         frame.add(textField, BorderLayout.NORTH);
 
-        // Create panel for buttons
+        
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(4, 4, 10, 10));
 
